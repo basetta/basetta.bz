@@ -1,7 +1,7 @@
 +++
 title = "About"
 path = "about"
-template = "about.html"
+template = "pages.html"
 +++
 
 Cucu! My name is Patrick Martini aka Basetta. The moniker Basetta derived from the fact the nature does not donate me sideburns. Sideburns in Italian are basette and basetta is the singular form.
