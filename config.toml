@@ -1,7 +1,7 @@
-base_url = "https://YOUR_URL.TLD"
-title = "site title"
-description = "YOUR_SITE_DESCRIPTION"
-author = "YOUR_NAME"
+base_url = "https://basetta.bz"
+title = "Basetta's Website"
+description = "Welcome to my personal blog! Find honest reflections, helpful advice, and a fresh perspective on travel, lifestyle, and more. Start exploring now."
+author = "Patrick Martini"
 theme = "tabi"
 generate_feeds = true
 compile_sass = true
@@ -236,7 +236,7 @@ enable_cards_tag_filtering = true
 invert_title_order = false
 
 # Full path after the base URL required. So if you were to place it in "static" it would be "/favicon.ico"
-# favicon = ""
+# favicon = "/img/butch.png"
 
 # Add an emoji here to use it as favicon.
 # Compatibility: https://caniuse.com/link-icon-svg
