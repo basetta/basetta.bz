@@ -1,5 +1,8 @@
 +++
 title=" Future of Web design"
+
+[taxonomies]
+tags = ["tech", "web-design", "conferences"]
 +++
 
 In London on 18th April took place the [Future of Web Design Conference](http://futureofwebdesign.com/).

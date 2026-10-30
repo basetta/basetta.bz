@@ -1,5 +1,8 @@
 +++
 title="How to fetch upstream changes in git easily"
+
+[taxonomies]
+tags = ["tech", "git"]
 +++
 
 It is quite common to update your git fork repository with the upstream changes.

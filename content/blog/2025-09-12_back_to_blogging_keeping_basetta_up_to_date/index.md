@@ -3,6 +3,9 @@ title = "Back to Blogging: Keeping Basetta Up-to-Date"
 date = 2025-09-12
 draft = false
 description = "Returning to technical blogging in a world of AI by building my own text editor in C, old-school style."
+
+[taxonomies]
+tags = ["tech", "blogging", "c", "text-editors"]
 +++
 
 ![Retro nvim coding session with C code and coffee.](retro_nvim_c_coding.png)

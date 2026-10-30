@@ -1,7 +1,8 @@
 +++
 title="How to recover a deleted file in Git"
-[extra]
-tags = "git"
+
+[taxonomies]
+tags = ["tech", "git"]
 +++
 
 <!-- more -->

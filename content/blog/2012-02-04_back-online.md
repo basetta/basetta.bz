@@ -1,6 +1,9 @@
 +++
 title="Back Online"
 categories=["personal"]
+
+[taxonomies]
+tags = ["tech", "blogging", "octopress"]
 +++
 
 It has been nearly four years since I last posted. Quite a lot.

@@ -1,5 +1,8 @@
 +++
 title=" Performance Tip For Edgy/Feisty Users"
+
+[taxonomies]
+tags = ["tech", "linux", "ubuntu"]
 +++
 
 Now and again I've been experiencing poor performance in GNOME.

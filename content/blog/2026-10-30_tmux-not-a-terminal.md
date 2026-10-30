@@ -3,6 +3,9 @@ title = "tmux Said “Not a Terminal.” The Terminal Was Fine"
 date = 2026-10-30
 draft = false
 description = "How a misleading tmux error sent us chasing terminal settings—and how we recovered the existing sessions without restarting their server."
+
+[taxonomies]
+tags = ["tech", "tmux"]
 +++
 
 *How a misleading error sent us chasing terminal settings—and how we recovered the existing sessions without restarting their server.*

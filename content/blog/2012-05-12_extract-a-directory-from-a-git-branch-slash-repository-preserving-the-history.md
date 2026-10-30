@@ -1,8 +1,9 @@
 +++
 title="Extract a Directory From a Git Branch/Repository Preserving The History"
 date=2012-05-12
-[extra]
-tags = "git"
+
+[taxonomies]
+tags = ["tech", "git"]
 +++
 <!-- more -->
 At work we wanted to extract from a branch a subdirectory containing a specific feature that had to be used from everyone in the team.

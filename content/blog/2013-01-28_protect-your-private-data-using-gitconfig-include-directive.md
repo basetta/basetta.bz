@@ -1,8 +1,9 @@
 +++
 title="Protect Your Private Data Using Gitconfig Include Directive"
 date=2013-01-28
-[extra]
-tags = "git"
+
+[taxonomies]
+tags = ["tech", "git", "dotfiles"]
 +++
 
 <!-- more -->

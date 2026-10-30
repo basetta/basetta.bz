@@ -1,5 +1,8 @@
 +++
 title="Django is running"
+
+[taxonomies]
+tags = ["tech", "django", "blogging"]
 +++
 <!-- more -->
 Finally, my new [Django](http://www.djangoproject.com) website is running.
