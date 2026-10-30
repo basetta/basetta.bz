@@ -1,15 +1,21 @@
 [build]
-publish = "public"
-command = "zola build"
+command = "npm run build"
+publish = "dist"
 
 [build.environment]
-# Set the version name that you want to use and Netlify will automatically use it.
-ZOLA_VERSION = "0.23.6"
+NODE_VERSION = "24.13.0"
 
-# The magic for deploying previews of branches.
-# We need to override the base url with whatever url Netlify assigns to our
-# preview site.  We do this using the Netlify environment variable
-# `$DEPLOY_PRIME_URL`.
+# Internal links remain relative in previews; canonical URLs point to production.
+# Astro uses Netlify's CONTEXT to mark previews noindex and block robots.txt.
 
-[context.deploy-preview]
-command = "zola build --base-url $DEPLOY_PRIME_URL"
+[[redirects]]
+from = "/blog/page/1/"
+to = "/blog/"
+status = 301
+
+[[headers]]
+for = "/*"
+  [headers.values]
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  X-Frame-Options = "DENY"

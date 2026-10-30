@@ -3,20 +3,29 @@ name: Test build
 on:
   workflow_dispatch:
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   test:
-    name: Test Site Build
+    name: Astro build and migration checks
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          submodules: true
-
-      - name: Zola Build
-        uses: shalzz/zola-deploy-action@v0.23.6
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - name: Verify deploy-preview indexing rules
+        run: npm run build && npm test
         env:
-          BUILD_ONLY: true
+          CONTEXT: deploy-preview

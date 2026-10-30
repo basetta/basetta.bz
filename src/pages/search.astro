@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Search" noindex>
+  <h1>Search</h1>
+  {import.meta.env.DEV ? <p>The search index is generated during the build. Run <code>npm run build && npm run preview</code> to test search.</p> : <>
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <div id="search" />
+    <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  </>}
+  <noscript>Search requires JavaScript. You can browse the <a href="/archive/">archive</a> or <a href="/tags/">tags</a> instead.</noscript>
+  <script>
+    type PagefindWindow = Window & {
+      PagefindUI?: new (options: { element: string; showSubResults: boolean }) => unknown;
+    };
+    const SearchUI = (window as PagefindWindow).PagefindUI;
+    if (SearchUI && document.querySelector('#search')) {
+      new SearchUI({ element: '#search', showSubResults: true });
+    }
+  </script>
+</Base>

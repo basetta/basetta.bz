@@ -1,0 +1,28 @@
+[tools]
+node = "24.13.0"
+
+[tasks.setup]
+description = "Install locked npm dependencies"
+run = "npm ci"
+
+[tasks.dev]
+description = "Start the Astro development server"
+run = "npm run dev"
+
+[tasks.build]
+description = "Build the static site and search index"
+run = "npm run build"
+
+[tasks.preview]
+description = "Build and preview the production site, including search"
+depends = ["build"]
+run = "npm run preview"
+
+[tasks.verify]
+description = "Run type checks, build, and regression tests"
+run = "npm run verify"
+
+[tasks."test:browser"]
+description = "Build and run browser tests (requires Playwright Chromium)"
+depends = ["build"]
+run = "npm run test:browser"

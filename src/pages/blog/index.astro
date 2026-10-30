@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import Pagination from '../../components/Pagination.astro';
+import { posts } from '../../lib/content';
+import { pageSize } from '../../site';
+const entries = await posts();
+---
+<Base title="Blog">
+  <h1>Blog</h1>
+  <PostList entries={entries.slice(0, pageSize)} />
+  <Pagination current={1} total={Math.ceil(entries.length / pageSize)} />
+</Base>

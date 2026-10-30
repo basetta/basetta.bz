@@ -1,0 +1,9 @@
+---
+import Article from '../../layouts/Article.astro';
+import { posts } from '../../lib/content';
+export async function getStaticPaths() {
+  return (await posts()).map(entry => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+const { entry } = Astro.props;
+---
+<Article entry={entry} />

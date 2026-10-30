@@ -1,0 +1,21 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PostList from '../../../components/PostList.astro';
+import Pagination from '../../../components/Pagination.astro';
+import { posts } from '../../../lib/content';
+import { pageSize } from '../../../site';
+export async function getStaticPaths() {
+  const entries = await posts();
+  const total = Math.ceil(entries.length / pageSize);
+  return Array.from({ length: Math.max(0, total - 1) }, (_, i) => {
+    const current = i + 2;
+    return { params: { page: String(current) }, props: { current, total, entries: entries.slice((current - 1) * pageSize, current * pageSize) } };
+  });
+}
+const { entries, current, total } = Astro.props;
+---
+<Base title={`Blog · Page ${current}`}>
+  <h1>Blog</h1>
+  <PostList entries={entries} />
+  <Pagination current={current} total={total} />
+</Base>

@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { taggedEntries, tagUrl } from '../../lib/content';
+export async function getStaticPaths() {
+  return (await taggedEntries()).map(({ tag, entries }) => ({ params: { tag }, props: { tag, entries } }));
+}
+const { tag, entries } = Astro.props;
+---
+<Base title={`Tag: ${tag}`}>
+  <h1>#{tag}</h1>
+  <p><a href={`${tagUrl(tag)}atom.xml`}>Subscribe to this tag</a></p>
+  <PostList entries={entries} />
+</Base>

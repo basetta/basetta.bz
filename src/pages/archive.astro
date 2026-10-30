@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { posts, entryUrl, formatDate } from '../lib/content';
+const entries = await posts();
+const years = [...new Set(entries.map(entry => entry.data.date.getUTCFullYear()))];
+---
+<Base title="Archive">
+  <h1>Archive</h1>
+  {years.map(year => <section class="archive-year">
+    <h2>{year}</h2>
+    <ul>{entries.filter(entry => entry.data.date.getUTCFullYear() === year).map(entry => <li>
+      <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+      <a href={entryUrl(entry)}>{entry.data.title}</a>
+    </li>)}</ul>
+  </section>)}
+</Base>
