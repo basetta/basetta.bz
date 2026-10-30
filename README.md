@@ -48,7 +48,7 @@ Start blogging in minutes with [Zola](https://www.getzola.org/) and [tabi](https
 
 ## Local development
 
-1. [Install Zola](https://www.getzola.org/documentation/getting-started/installation/)
+1. [Install Zola](https://www.getzola.org/documentation/getting-started/installation/) **0.23.6** (matching Netlify and CI)
 2. Clone your repository
 3. Run `git submodule update --init --recursive`
 4. Run `zola serve`
@@ -72,6 +72,10 @@ Refer to the [Zola documentation](https://www.getzola.org/documentation/deployme
 - [Zeabur](https://www.getzola.org/documentation/deployment/zeabur/)
 
 ## Updating tabi
+
+Keep the Zola version in `netlify.toml` and `.github/workflows/test-build.yml`
+in sync. Theme updates can require a newer Zola version; run `zola build` and
+`zola build --base-url https://deploy-preview.example.com` before merging.
 
 ### Automated updates
 

@@ -4,4 +4,4 @@ title=" Try.....suicide"
 
 A really mean Novergian commercial.
 
-{%youtube MBCk7IvTTTw %}
+[Watch the commercial on YouTube](https://www.youtube.com/watch?v=MBCk7IvTTTw)

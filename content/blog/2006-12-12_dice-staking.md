@@ -2,4 +2,4 @@
 title=" Dice Staking"
 +++
 
-{% youtube 19pDsHLLmHE %}
+[Watch the dice stacking video on YouTube](https://www.youtube.com/watch?v=19pDsHLLmHE)

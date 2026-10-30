@@ -3,7 +3,7 @@ title=" Nick Hayden World Championship"
 categories=["personal"]
 +++
 
-{% img /images/posts/hayden.jpg %}
+![Nicky Hayden](/images/posts/hayden.jpg)
 
 That's it!!!! Hayden is the new World Champion.
 

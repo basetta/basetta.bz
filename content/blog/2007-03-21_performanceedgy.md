@@ -8,26 +8,26 @@ It really works at leat for me.
 
 Edit your /etc/hosts file:
 
-{% codeblock %}
+```sh
 $ sudo gedit /etc/hosts
-{% endcodeblock %}
+```
 
 You should see something like that:
 
-{% codeblock %}
+```text
 127.0.0.1 localhost
 
 127.0.1.1 basetta-laptop
-{% endcodeblock %}
+```
 
 Now write on the first line your hostname (my hostname is basetta-laptop).
 
 
-{% codeblock %}
+```text
 127.0.0.1 localhost basetta-laptop
 
 127.0.1.1 basetta-laptop
-{% endcodeblock %}
+```
 
 Now Save.
 

@@ -8,7 +8,7 @@ So far, I haven't met any American who voted for Bush.
 
 But now with this video I have found the answer.
 
-{% youtube q5jiLEAUB-o%}
+[Watch the video on YouTube](https://www.youtube.com/watch?v=q5jiLEAUB-o)
 
 
 

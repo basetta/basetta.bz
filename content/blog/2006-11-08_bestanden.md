@@ -12,6 +12,6 @@ Supermotard KTM 640 LC4.
 
 But maybe it's better I content myself with this other one .
 
-{% img /images/posts/foto_bici_small.jpeg %}
+![Bicycle](/images/posts/foto_bici_small.jpeg)
 
 But I'll think again about it in March. Now winter is coming and a motorcylce is not the best "vehicle" to ride.
