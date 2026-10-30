@@ -1,0 +1,594 @@
+{
+  "routes": [
+    "/404.html",
+    "/archive/",
+    "/atom.xml",
+    "/blog/2007-photos/",
+    "/blog/a-present-from-my-friends/",
+    "/blog/adsense/",
+    "/blog/aime2007/",
+    "/blog/air-car/",
+    "/blog/americans/",
+    "/blog/back-online/",
+    "/blog/back-to-blogging-keeping-basetta-up-to-date/",
+    "/blog/be-green/",
+    "/blog/belletage/",
+    "/blog/bestanden/",
+    "/blog/book-section/",
+    "/blog/brno-again/",
+    "/blog/brno/",
+    "/blog/bulbs/",
+    "/blog/clutter/",
+    "/blog/coincidence/",
+    "/blog/death/",
+    "/blog/decision/",
+    "/blog/deletepicture/",
+    "/blog/destiny/",
+    "/blog/dice-staking/",
+    "/blog/django-is-running/",
+    "/blog/enso/",
+    "/blog/extract-a-directory-from-a-git-branch-slash-repository-preserving-the-history/",
+    "/blog/facts-on-farts/",
+    "/blog/fear/",
+    "/blog/fluc/",
+    "/blog/fortunecookie/",
+    "/blog/futurewebdesign/",
+    "/blog/godfather/",
+    "/blog/gogol-bordello-concert/",
+    "/blog/hell/",
+    "/blog/how-to-fetch-upstream-changes-in-git-easily/",
+    "/blog/how-to-recover-a-deleted-a-file-in-git/",
+    "/blog/",
+    "/blog/iphone/",
+    "/blog/lastpost/",
+    "/blog/linerider/",
+    "/blog/liveordie/",
+    "/blog/metro-lines-i-have-used/",
+    "/blog/movies/",
+    "/blog/nick-hayden-world-championship-2/",
+    "/blog/no-trace/",
+    "/blog/norvegiancommercial/",
+    "/blog/page/1/",
+    "/blog/page/10/",
+    "/blog/page/11/",
+    "/blog/page/12/",
+    "/blog/page/13/",
+    "/blog/page/2/",
+    "/blog/page/3/",
+    "/blog/page/4/",
+    "/blog/page/5/",
+    "/blog/page/6/",
+    "/blog/page/7/",
+    "/blog/page/8/",
+    "/blog/page/9/",
+    "/blog/pearl-jam-vienna/",
+    "/blog/performanceedgy/",
+    "/blog/photos/",
+    "/blog/protect-your-private-data-using-gitconfig-include-directive/",
+    "/blog/repetition/",
+    "/blog/resolution/",
+    "/blog/shark/",
+    "/blog/stopthinking/",
+    "/blog/swedish-proverd/",
+    "/blog/the-simpsons-movie/",
+    "/blog/thepast/",
+    "/blog/tmux-not-a-terminal/",
+    "/blog/tmux-sessionizer/",
+    "/blog/understanding-eu-policy-making/",
+    "/blog/valentinoisback/",
+    "/blog/vienna-bolzano-and-return/",
+    "/blog/vienna-paris-return/",
+    "/bookcase/",
+    "/",
+    "/projects/cool-project/",
+    "/projects/",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/tags/blogging/atom.xml",
+    "/tags/blogging/",
+    "/tags/c/atom.xml",
+    "/tags/c/",
+    "/tags/conferences/atom.xml",
+    "/tags/conferences/",
+    "/tags/django/atom.xml",
+    "/tags/django/",
+    "/tags/dotfiles/atom.xml",
+    "/tags/dotfiles/",
+    "/tags/git/atom.xml",
+    "/tags/git/",
+    "/tags/",
+    "/tags/linux/atom.xml",
+    "/tags/linux/",
+    "/tags/meta/atom.xml",
+    "/tags/meta/",
+    "/tags/octopress/atom.xml",
+    "/tags/octopress/",
+    "/tags/tech/atom.xml",
+    "/tags/tech/",
+    "/tags/text-editors/atom.xml",
+    "/tags/text-editors/",
+    "/tags/tmux/atom.xml",
+    "/tags/tmux/",
+    "/tags/ubuntu/atom.xml",
+    "/tags/ubuntu/",
+    "/tags/web-design/atom.xml",
+    "/tags/web-design/"
+  ],
+  "imported": [
+    {
+      "source": "content/blog/2006-07-17_Django-is-running.md",
+      "target": "src/content/blog/django-is-running.md",
+      "url": "/blog/django-is-running/",
+      "date": "2006-07-17",
+      "tags": [
+        "tech",
+        "django",
+        "blogging"
+      ]
+    },
+    {
+      "source": "content/blog/2006-07-28_Brno.md",
+      "target": "src/content/blog/brno.md",
+      "url": "/blog/brno/",
+      "date": "2006-07-28",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-08-22_Brno_Again.md",
+      "target": "src/content/blog/brno-again.md",
+      "url": "/blog/brno-again/",
+      "date": "2006-08-22",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-08-26_pearl-jam-vienna/index.md",
+      "target": "src/content/blog/pearl-jam-vienna.md",
+      "url": "/blog/pearl-jam-vienna/",
+      "date": "2006-08-26",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-08-27_understanding-eu-policy-making.md",
+      "target": "src/content/blog/understanding-eu-policy-making.md",
+      "url": "/blog/understanding-eu-policy-making/",
+      "date": "2006-08-27",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-08-31_metro-lines-i-have-used.md",
+      "target": "src/content/blog/metro-lines-i-have-used.md",
+      "url": "/blog/metro-lines-i-have-used/",
+      "date": "2006-08-31",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-10-20_a-present-from-my-friends.md",
+      "target": "src/content/blog/a-present-from-my-friends.md",
+      "url": "/blog/a-present-from-my-friends/",
+      "date": "2006-10-20",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-10-30_nick-hayden-world-championship-2.md",
+      "target": "src/content/blog/nick-hayden-world-championship-2.md",
+      "url": "/blog/nick-hayden-world-championship-2/",
+      "date": "2006-10-30",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-11-08_bestanden.md",
+      "target": "src/content/blog/bestanden.md",
+      "url": "/blog/bestanden/",
+      "date": "2006-11-08",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-11-12_the-simpsons-movie.md",
+      "target": "src/content/blog/the-simpsons-movie.md",
+      "url": "/blog/the-simpsons-movie/",
+      "date": "2006-11-12",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-11-15_linerider.md",
+      "target": "src/content/blog/linerider.md",
+      "url": "/blog/linerider/",
+      "date": "2006-11-15",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-11-20_gogol-bordello-concert.md",
+      "target": "src/content/blog/gogol-bordello-concert.md",
+      "url": "/blog/gogol-bordello-concert/",
+      "date": "2006-11-20",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-11-24_Book-section.md",
+      "target": "src/content/blog/book-section.md",
+      "url": "/blog/book-section/",
+      "date": "2006-11-24",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-12-06_facts-on-farts.md",
+      "target": "src/content/blog/facts-on-farts.md",
+      "url": "/blog/facts-on-farts/",
+      "date": "2006-12-06",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-12-12_dice-staking.md",
+      "target": "src/content/blog/dice-staking.md",
+      "url": "/blog/dice-staking/",
+      "date": "2006-12-12",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2006-12-14_be-green.md",
+      "target": "src/content/blog/be-green.md",
+      "url": "/blog/be-green/",
+      "date": "2006-12-14",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-01-10_iphone.md",
+      "target": "src/content/blog/iphone.md",
+      "url": "/blog/iphone/",
+      "date": "2007-01-10",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-01-15_movies.md",
+      "target": "src/content/blog/movies.md",
+      "url": "/blog/movies/",
+      "date": "2007-01-15",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-01-24_shark.md",
+      "target": "src/content/blog/shark.md",
+      "url": "/blog/shark/",
+      "date": "2007-01-24",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-02-02_enso.md",
+      "target": "src/content/blog/enso.md",
+      "url": "/blog/enso/",
+      "date": "2007-02-02",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-02-07_air-car.md",
+      "target": "src/content/blog/air-car.md",
+      "url": "/blog/air-car/",
+      "date": "2007-02-07",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-02-13_Bulbs.md",
+      "target": "src/content/blog/bulbs.md",
+      "url": "/blog/bulbs/",
+      "date": "2007-02-13",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-02-16_destiny.md",
+      "target": "src/content/blog/destiny.md",
+      "url": "/blog/destiny/",
+      "date": "2007-02-16",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-02-26_valentinoisback.md",
+      "target": "src/content/blog/valentinoisback.md",
+      "url": "/blog/valentinoisback/",
+      "date": "2007-02-26",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-02-27_Americans.md",
+      "target": "src/content/blog/americans.md",
+      "url": "/blog/americans/",
+      "date": "2007-02-27",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-03-02_fortunecookie.md",
+      "target": "src/content/blog/fortunecookie.md",
+      "url": "/blog/fortunecookie/",
+      "date": "2007-03-02",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-03-21_performanceedgy.md",
+      "target": "src/content/blog/performanceedgy.md",
+      "url": "/blog/performanceedgy/",
+      "date": "2007-03-21",
+      "tags": [
+        "tech",
+        "linux",
+        "ubuntu"
+      ]
+    },
+    {
+      "source": "content/blog/2007-03-29_godfather.md",
+      "target": "src/content/blog/godfather.md",
+      "url": "/blog/godfather/",
+      "date": "2007-03-29",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-04-19_fluc.md",
+      "target": "src/content/blog/fluc.md",
+      "url": "/blog/fluc/",
+      "date": "2007-04-19",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-04-26_futurewebdesign.md",
+      "target": "src/content/blog/futurewebdesign.md",
+      "url": "/blog/futurewebdesign/",
+      "date": "2007-04-26",
+      "tags": [
+        "tech",
+        "web-design",
+        "conferences"
+      ]
+    },
+    {
+      "source": "content/blog/2007-05-10_belletage.md",
+      "target": "src/content/blog/belletage.md",
+      "url": "/blog/belletage/",
+      "date": "2007-05-10",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-07-13_aime2007.md",
+      "target": "src/content/blog/aime2007.md",
+      "url": "/blog/aime2007/",
+      "date": "2007-07-13",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-08-21_Death.md",
+      "target": "src/content/blog/death.md",
+      "url": "/blog/death/",
+      "date": "2007-08-21",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-08-22_2007-photos.md",
+      "target": "src/content/blog/2007-photos.md",
+      "url": "/blog/2007-photos/",
+      "date": "2007-08-22",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-11-22_adsense.md",
+      "target": "src/content/blog/adsense.md",
+      "url": "/blog/adsense/",
+      "date": "2007-11-22",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2007-12-17_fear.md",
+      "target": "src/content/blog/fear.md",
+      "url": "/blog/fear/",
+      "date": "2007-12-17",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-02-01_Clutter.md",
+      "target": "src/content/blog/clutter.md",
+      "url": "/blog/clutter/",
+      "date": "2008-02-01",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-02-07_photos.md",
+      "target": "src/content/blog/photos.md",
+      "url": "/blog/photos/",
+      "date": "2008-02-07",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-03-05_swedish-proverd.md",
+      "target": "src/content/blog/swedish-proverd.md",
+      "url": "/blog/swedish-proverd/",
+      "date": "2008-03-05",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-03-13_liveordie.md",
+      "target": "src/content/blog/liveordie.md",
+      "url": "/blog/liveordie/",
+      "date": "2008-03-13",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-03-16_lastpost.md",
+      "target": "src/content/blog/lastpost.md",
+      "url": "/blog/lastpost/",
+      "date": "2008-03-16",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-03-29_deletepicture.md",
+      "target": "src/content/blog/deletepicture.md",
+      "url": "/blog/deletepicture/",
+      "date": "2008-03-29",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-03-31_norvegiancommercial.md",
+      "target": "src/content/blog/norvegiancommercial.md",
+      "url": "/blog/norvegiancommercial/",
+      "date": "2008-03-31",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-04-02_decision.md",
+      "target": "src/content/blog/decision.md",
+      "url": "/blog/decision/",
+      "date": "2008-04-02",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-04-09_stopthinking.md",
+      "target": "src/content/blog/stopthinking.md",
+      "url": "/blog/stopthinking/",
+      "date": "2008-04-09",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-04-15_coincidence.md",
+      "target": "src/content/blog/coincidence.md",
+      "url": "/blog/coincidence/",
+      "date": "2008-04-15",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-04-21_resolution.md",
+      "target": "src/content/blog/resolution.md",
+      "url": "/blog/resolution/",
+      "date": "2008-04-21",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-06-04_repetition.md",
+      "target": "src/content/blog/repetition.md",
+      "url": "/blog/repetition/",
+      "date": "2008-06-04",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-07-11_thepast.md",
+      "target": "src/content/blog/thepast.md",
+      "url": "/blog/thepast/",
+      "date": "2008-07-11",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-07-15_hell.md",
+      "target": "src/content/blog/hell.md",
+      "url": "/blog/hell/",
+      "date": "2008-07-15",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-08-27_vienna-paris-return.md",
+      "target": "src/content/blog/vienna-paris-return.md",
+      "url": "/blog/vienna-paris-return/",
+      "date": "2008-08-27",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-09-09_Vienna-Bolzano-and-Return.md",
+      "target": "src/content/blog/vienna-bolzano-and-return.md",
+      "url": "/blog/vienna-bolzano-and-return/",
+      "date": "2008-09-09",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2008-09-17_no-trace.md",
+      "target": "src/content/blog/no-trace.md",
+      "url": "/blog/no-trace/",
+      "date": "2008-09-17",
+      "tags": []
+    },
+    {
+      "source": "content/blog/2012-02-04_back-online.md",
+      "target": "src/content/blog/back-online.md",
+      "url": "/blog/back-online/",
+      "date": "2012-02-04",
+      "tags": [
+        "tech",
+        "blogging",
+        "octopress"
+      ]
+    },
+    {
+      "source": "content/blog/2012-04-18_how-to-fetch-upstream-changes-in-git-easily.md",
+      "target": "src/content/blog/how-to-fetch-upstream-changes-in-git-easily.md",
+      "url": "/blog/how-to-fetch-upstream-changes-in-git-easily/",
+      "date": "2012-04-18",
+      "tags": [
+        "tech",
+        "git"
+      ]
+    },
+    {
+      "source": "content/blog/2012-05-12_extract-a-directory-from-a-git-branch-slash-repository-preserving-the-history.md",
+      "target": "src/content/blog/extract-a-directory-from-a-git-branch-slash-repository-preserving-the-history.md",
+      "url": "/blog/extract-a-directory-from-a-git-branch-slash-repository-preserving-the-history/",
+      "date": "2012-05-12",
+      "tags": [
+        "tech",
+        "git"
+      ]
+    },
+    {
+      "source": "content/blog/2013-01-28_protect-your-private-data-using-gitconfig-include-directive.md",
+      "target": "src/content/blog/protect-your-private-data-using-gitconfig-include-directive.md",
+      "url": "/blog/protect-your-private-data-using-gitconfig-include-directive/",
+      "date": "2013-01-28",
+      "tags": [
+        "tech",
+        "git",
+        "dotfiles"
+      ]
+    },
+    {
+      "source": "content/blog/2020-03-27_how-to-recover-a-deleted-a-file-in-git.md",
+      "target": "src/content/blog/how-to-recover-a-deleted-a-file-in-git.md",
+      "url": "/blog/how-to-recover-a-deleted-a-file-in-git/",
+      "date": "2020-03-27",
+      "tags": [
+        "tech",
+        "git"
+      ]
+    },
+    {
+      "source": "content/blog/2025-09-12_back_to_blogging_keeping_basetta_up_to_date/index.md",
+      "target": "src/content/blog/back-to-blogging-keeping-basetta-up-to-date.md",
+      "url": "/blog/back-to-blogging-keeping-basetta-up-to-date/",
+      "date": "2025-09-12",
+      "tags": [
+        "tech",
+        "blogging",
+        "c",
+        "text-editors"
+      ]
+    },
+    {
+      "source": "content/blog/2026-10-30_tmux-not-a-terminal.md",
+      "target": "src/content/blog/tmux-not-a-terminal.md",
+      "url": "/blog/tmux-not-a-terminal/",
+      "date": "2026-10-30",
+      "tags": [
+        "tech",
+        "tmux"
+      ]
+    },
+    {
+      "source": "content/blog/2026-10-30_tmux-sessionizer/index.md",
+      "target": "src/content/blog/tmux-sessionizer.md",
+      "url": "/blog/tmux-sessionizer/",
+      "date": "2026-10-30",
+      "tags": [
+        "tech",
+        "tmux"
+      ]
+    },
+    {
+      "source": "content/projects/cool_project.md",
+      "target": "src/content/projects/cool-project.md",
+      "url": "/projects/cool-project/",
+      "tags": [
+        "meta"
+      ]
+    }
+  ]
+}

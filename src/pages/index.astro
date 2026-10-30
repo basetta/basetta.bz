@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import { posts } from '../lib/content';
+const latest = (await posts()).slice(0, 5);
+---
+<Base>
+  <section class="intro">
+    <img src="/img/profile.webp" width="112" height="112" alt="Basetta" />
+    <div><h1>Hi, I'm Basetta! 👋</h1><p>Welcome to my personal site!</p></div>
+  </section>
+  <h2 class="section-title">Latest posts</h2>
+  <PostList entries={latest} />
+  <a class="all-posts" href="/blog/">All posts →</a>
+</Base>

@@ -1,0 +1,20 @@
+---
+title: Brno
+slug: brno
+date: 2006-07-28
+draft: false
+tags: []
+---
+<!-- more -->
+Finally, I have the opportunity to see Valentino Rossi.
+Today I bought 4 tickets for the MOTOGP in [Brno](http://www.automotodrombrno.cz/).
+I'm looking forward going there.
+
+
+I must wait until 18th August.
+I know the fight for the championship is not easy for Valentino who
+is dogged by bad luck this year.
+But I hope something will happen in Brno... for example Hayden could
+forget the fuel or something like that.
+
+

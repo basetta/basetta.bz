@@ -1,120 +1,117 @@
-<p align="center">
-    <a href="https://www.getzola.org/">
-        <img src="https://img.shields.io/badge/powered_by-Zola-brightgreen?style=flat-square&labelColor=202b2d&color=087e96" alt="Built with Zola"></a>
-    <a href="https://github.com/welpo/tabi">
-        <img src="https://img.shields.io/badge/theme-tabi-0?style=flat-square&labelColor=202b2d&color=087e96" alt="tabi theme"></a>
-    <a href="https://welpo.github.io/tabi/blog/mastering-tabi-settings/">
-        <img src="https://img.shields.io/badge/docs-here-0?style=flat-square&labelColor=202b2d&color=087e96" alt="Documentation"></a>
-</p>
+# basetta.bz
 
-# tabi start
-
-Start blogging in minutes with [Zola](https://www.getzola.org/) and [tabi](https://github.com/welpo/tabi).
-
-![Screenshot of tabi theme](https://cdn.jsdelivr.net/gh/welpo/tabi@main/light_dark_screenshot.png)
-
-## Quick start
-
-1. On the top right of this page, click "Use this template" → "Create a new repository"
-2. Replace placeholders in `content/_index.md` and in the first four lines of `config.toml`
-3. Save your profile photo to `static/img/profile.webp` (or change the path to your image in `content/_index.md`)
-4. Start writing in `content/blog/`. See `content/blog/hello.md` for an example
-
-**Note**: an error like `Tried to build search index for language ko which is not supported`, means Zola does not support search for that language. To disable search, set `build_search_index = false` in `config.toml`
-
-> [!TIP]
-> Take a look through `config.toml` to customise further (set up [social links](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#social-media-icons), your [email](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#encoded-email)…). The [Mastering tabi Settings](https://welpo.github.io/tabi/blog/mastering-tabi-settings/) guide has more details.
-
-## File structure
-
-```tree
-├── config.toml              # Site configuration
-├── content/
-│   ├── _index.md            # Home page
-│   ├── archive/             # Archive page
-│   │   └── _index.md        # Archive page section
-│   ├── blog/                # Blog posts
-│   │   ├── hello.md         # Sample post
-│   │   └── _index.md        # Blog section configuration
-│   └── projects/            # Projects page
-│       ├── cool_project.md  # Sample project
-│       └── _index.md        # Projects section configuration
-│── static/
-│   └── img/
-│       └── profile.webp     # Profile photo for home page
-└── themes/
-    └── tabi/                # tabi theme
-```
+Patrick Martini's personal blog, built as a static site with **Astro 7** and deployed on Netlify.
 
 ## Local development
 
-1. [Install Zola](https://www.getzola.org/documentation/getting-started/installation/) **0.23.6** (matching Netlify and CI)
-2. Clone your repository
-3. Run `git submodule update --init --recursive`
-4. Run `zola serve`
-5. Visit http://127.0.0.1:1111. You should see [this](https://tabi-start.pages.dev/).
+Use Node.js **24.13.0** (pinned in `mise.toml` and `.nvmrc`), matching Netlify and CI.
+
+With [mise](https://mise.jdx.dev/):
+
+```sh
+mise trust
+mise install
+mise run setup
+mise run dev
+```
+
+Use `mise run preview` to build and preview the full site, including search.
+`mise run verify` runs the type checks, build, and regression tests.
+
+Alternatively, with Node already installed:
+
+```sh
+npm ci
+npm run dev
+```
+
+Open the URL printed by Astro, normally <http://localhost:4321>.
+
+To build and preview the production site, including search:
+
+```sh
+npm run build
+npm run preview
+```
+
+Pagefind generates the search index after the Astro build. Search is not available in the development server.
+
+## Add a post
+
+Create `src/content/blog/my-post.md` with YAML front matter:
+
+```markdown
+---
+title: My new post
+slug: my-post
+date: 2026-10-30
+description: A short description for listings and search engines.
+draft: false
+tags:
+  - tech
+---
+
+Write the article here.
+```
+
+The URL is `/blog/my-post/`. Keep `slug` unchanged after publication to preserve links. Dates are interpreted and displayed in UTC. Set `draft: true` to exclude a post from the site, feeds, sitemap, and search.
+
+For images, place files in `static/blog/my-post/` and reference their public path:
+
+```markdown
+![Description of the image](/blog/my-post/screenshot.png)
+```
+
+Use regular Markdown, not Zola/Tera shortcodes. Existing tags are in `src/content/blog/`; agree on new tags before expanding the taxonomy.
+
+## Checks
+
+```sh
+npm run verify
+npx playwright install chromium
+npm run test:browser
+```
+
+`verify` runs Astro's type checks, the production build, search indexing, and output regression tests. Browser tests cover search under CSP, image loading, theme persistence, mobile overflow, and navigation without JavaScript.
+
+To check Netlify deploy-preview indexing rules locally:
+
+```sh
+CONTEXT=deploy-preview npm run build
+CONTEXT=deploy-preview npm test
+npm run build # Restore the normal production output.
+```
 
 ## Deployment
 
-Refer to the [Zola documentation](https://www.getzola.org/documentation/deployment/overview/):
+Netlify configuration is in `netlify.toml`:
 
-- [AWS S3 Bucket](https://www.getzola.org/documentation/deployment/aws-s3/)
-- [Cloudflare Pages](https://www.getzola.org/documentation/deployment/cloudflare-pages/)
-- [Codeberg Pages](https://www.getzola.org/documentation/deployment/codeberg-pages/)
-- [Docker image](https://www.getzola.org/documentation/deployment/docker-image/)
-- [Edgio](https://www.getzola.org/documentation/deployment/edgio/)
-- [Fly.io](https://www.getzola.org/documentation/deployment/flyio/)
-- [GitHub Pages](https://www.getzola.org/documentation/deployment/github-pages/)
-- [GitLab Pages](https://www.getzola.org/documentation/deployment/gitlab-pages/)
-- [Netlify](https://www.getzola.org/documentation/deployment/netlify/)
-- [Sourcehut Pages](https://www.getzola.org/documentation/deployment/sourcehut/)
-- [Vercel](https://www.getzola.org/documentation/deployment/vercel/)
-- [Zeabur](https://www.getzola.org/documentation/deployment/zeabur/)
+- Build: `npm run build`
+- Publish: `dist`
+- Runtime: Node.js 24.13.0
+- No server-side rendering or Netlify adapter required.
 
-## Updating tabi
+Production canonical URLs and feeds use `https://basetta.bz`. Internal navigation uses relative-to-site paths, so previews remain on their own host. Deploy previews and branch deployments receive `noindex` metadata and a disallow-all `robots.txt`.
 
-Keep the Zola version in `netlify.toml` and `.github/workflows/test-build.yml`
-in sync. Theme updates can require a newer Zola version; run `zola build` and
-`zola build --base-url https://deploy-preview.example.com` before merging.
+The existing `/atom.xml`, tag feeds, `/sitemap.xml`, and blog pagination URLs are preserved. `/blog/page/1/` redirects to `/blog/`.
 
-### Automated updates
+## Project structure
 
-This template includes a [GitHub Action workflow](https://github.com/welpo/tabi-start/blob/main/.github/workflows/update-tabi.yml) that checks for tabi theme updates weekly and creates a PR when updates are available.
+| Path | Purpose |
+| --- | --- |
+| `src/content/blog/` | Active Markdown posts |
+| `src/content/projects/` | Active project pages |
+| `src/content.config.ts` | Validated content schemas |
+| `src/pages/` | Static routes, feeds, robots, and sitemap |
+| `src/layouts/`, `src/components/` | Astro templates |
+| `src/styles/global.css` | Responsive light/dark design |
+| `src/site.ts` | Site metadata and pagination size |
+| `static/` | Public files copied unchanged to `dist/` |
+| `tests/` | Migration regression and browser tests |
+| `dist/` | Generated Astro output (ignored) |
 
-#### Setting up permissions
+## Zola migration status
 
-The automated updates require proper GitHub Actions permissions:
+This is the first Astro migration pass, not a pixel-for-pixel port of tabi. See [the migration notes](docs/astro-migration.md) for preserved behavior and remaining review items.
 
-1. Go to your repository's Settings → Actions → General
-2. Scroll down to "Workflow permissions"
-3. Enable "Allow GitHub Actions to create and approve pull requests"
-4. Save changes
-
-<details>
-<summary>How automated updates work (click to read)</summary>
-
-- Every Monday at midnight (UTC), the workflow checks for new tabi versions
-- If an update is found, it creates a PR with:
-  - Detailed changelog
-  - Links to relevant commits and PRs
-  - The exact changes being made
-- It runs the Test build workflow. If the build fails, you'll receive an email notification. **Verify the site works locally before merging the PR**
-- You can review and merge these updates at your convenience
-
-</details>
-
-### Manual updates
-
-```bash
-git submodule update --remote themes/tabi
-```
-
-## Support
-
-- [tabi documentation](https://welpo.github.io/tabi/)
-- [Zola documentation](https://www.getzola.org/documentation/getting-started/overview/)
-
-> [!TIP]
-> How was your experience with this template?
->
-> Share your thoughts in this [tabi discussion](https://github.com/welpo/tabi/discussions/440) or [report any issues](https://github.com/welpo/tabi/issues/new?&labels=bug&template=2_bug_report.yml) you find! Thank you 🙇🏼‍♂️
+`content/`, `config.toml`, and `themes/tabi/` are retained **only as the legacy Zola reference**. Edit `src/content/` for all new work. Astro does not read the old content or the generated Zola `public/` directory.

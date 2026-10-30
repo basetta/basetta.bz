@@ -1,0 +1,14 @@
+---
+title: Enso Launcher and Enso Words
+slug: enso
+date: 2007-02-02
+draft: false
+tags: []
+---
+
+>
+Enso is a new idea in computing that brings true universality to interfaces.
+It makes Windows, and everything in it, more humane. It breaks down the walls between applications.
+What does that mean?
+See for yourself: Watch the trailer for a sneak preview of some of Enso's features. You can find the trailer [here](http://www.humanized.com/movies/trailer.php)
+

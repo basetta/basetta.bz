@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import { taggedEntries, tagUrl } from '../../lib/content';
+const tags = await taggedEntries();
+---
+<Base title="Tags">
+  <h1>Tags</h1>
+  <ul class="tag-index">{tags.map(({ tag, entries }) => <li><a href={tagUrl(tag)}>{tag}</a><span>{entries.length} {entries.length === 1 ? 'post' : 'posts'}</span></li>)}</ul>
+</Base>

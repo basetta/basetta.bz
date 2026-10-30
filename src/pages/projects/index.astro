@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { projects } from '../../lib/content';
+const entries = await projects();
+---
+<Base title="Projects">
+  <h1>Projects</h1>
+  <PostList entries={entries} />
+</Base>
