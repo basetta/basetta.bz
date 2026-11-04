@@ -1,7 +1,7 @@
 ---
 title: "Same Blog, New Engine: Switching to Astro"
 slug: switching-to-astro
-date: 2026-10-30
+date: 2026-10-30T11:00:00Z
 description: Why basetta.bz moved from Zola to Astro, what the migration involved, and why the blog is still a static site on Netlify.
 draft: false
 tags:

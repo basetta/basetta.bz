@@ -1,7 +1,7 @@
 export const site = {
   url: 'https://basetta.bz',
   title: "Basetta's Website",
-  description: 'Welcome to my personal blog! Find honest reflections, helpful advice, and a fresh perspective on travel, lifestyle, and more. Start exploring now.',
+  description: 'Patrick Martini, aka Basetta, writes about developer tools, things he builds, and the occasional detour through life.',
   author: 'Patrick Martini',
 };
 

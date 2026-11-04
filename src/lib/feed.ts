@@ -1,8 +1,26 @@
+import { parseHTML } from 'linkedom';
 import { site } from '../site';
 import { description, entryUrl, type Entry } from './content';
 
 export function escapeXml(value: string) {
   return value.replace(/[<>&"']/g, character => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;' })[character]!);
+}
+
+// Feed readers do not run the theme's copy scripts or load its code styles.
+// Keep code as plain preformatted text, including the original line breaks.
+function feedContent(html: string) {
+  const { document } = parseHTML(`<html><body>${html}</body></html>`);
+  for (const block of document.querySelectorAll('.expressive-code')) {
+    const pre = block.querySelector('pre');
+    const code = pre?.querySelector('code');
+    const lines = block.querySelectorAll('.ec-line .code');
+    if (pre && code && lines.length) {
+      code.textContent = [...lines].map(line => line.textContent).join('\n');
+      block.replaceWith(pre);
+    }
+  }
+  for (const element of document.querySelectorAll('script, style, link, button')) element.remove();
+  return document.body.innerHTML;
 }
 
 export function atomFeed(entries: Entry[], feedPath = '/atom.xml', title = site.title) {
@@ -26,7 +44,7 @@ ${dated.map(entry => {
 <published>${entry.data.date!.toISOString()}</published>
 <updated>${(entry.data.updated ?? entry.data.date!).toISOString()}</updated>
 <summary>${escapeXml(description(entry))}</summary>
-<content type="html" xml:base="${escapeXml(url)}">${escapeXml(entry.rendered?.html ?? '')}</content>
+<content type="html" xml:base="${escapeXml(url)}">${escapeXml(feedContent(entry.rendered?.html ?? ''))}</content>
 ${entry.data.tags.map(tag => `<category term="${escapeXml(tag)}"/>`).join('\n')}
 </entry>`;
   }).join('\n')}

@@ -15,10 +15,10 @@ const fields = {
 export const collections = {
   blog: defineCollection({
     loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
-    schema: z.object({ ...fields, date: z.coerce.date() }),
+    schema: z.object({ ...fields, date: z.coerce.date(), featured: z.boolean().default(false) }),
   }),
   projects: defineCollection({
     loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
-    schema: z.object({ ...fields, date: z.coerce.date().optional(), weight: z.number().default(0) }),
+    schema: z.object({ ...fields, date: z.coerce.date().optional(), weight: z.number().default(0), unlisted: z.boolean().default(false) }),
   }),
 };
