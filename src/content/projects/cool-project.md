@@ -3,6 +3,7 @@ title: Hello World Project
 slug: cool-project
 description: A simple demo project showcasing tabi's project features
 draft: false
+unlisted: true
 tags:
   - meta
 weight: 1

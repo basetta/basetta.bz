@@ -6,5 +6,5 @@ const entries = await projects();
 ---
 <Base title="Projects">
   <h1>Projects</h1>
-  <PostList entries={entries} />
+  {entries.length > 0 ? <PostList entries={entries} /> : <p>Nothing to share here yet. In the meantime, you can read about what I'm working on <a href="/blog/">on the blog</a>.</p>}
 </Base>

@@ -2,7 +2,7 @@
 import Article from '../../layouts/Article.astro';
 import { projects } from '../../lib/content';
 export async function getStaticPaths() {
-  return (await projects()).map(entry => ({ params: { slug: entry.data.slug }, props: { entry } }));
+  return (await projects({ includeUnlisted: true })).map(entry => ({ params: { slug: entry.data.slug }, props: { entry } }));
 }
 const { entry } = Astro.props;
 ---

@@ -1,4 +1,6 @@
 import { defineConfig } from 'astro/config';
+import sagePresentation from './src/integrations/sage.ts';
+import sageConfig from './sage.config.ts';
 
 export default defineConfig({
   site: 'https://basetta.bz',
@@ -17,19 +19,15 @@ export default defineConfig({
         'frame-src https://player.vimeo.com https://www.youtube-nocookie.com',
       ],
       scriptDirective: { resources: ["'self'", "'wasm-unsafe-eval'"] },
-      // Shiki and the search UI use inline style attributes, not inline scripts.
+      // Expressive Code and the search UI use inline style attributes.
       styleDirective: { resources: [
         { resource: "'self'", kind: 'element' },
         { resource: "'unsafe-inline'", kind: 'attribute' },
       ] },
     },
   },
-  markdown: {
-    shikiConfig: {
-      theme: 'catppuccin-frappe',
-      wrap: false,
-    },
-  },
+  markdown: { syntaxHighlight: false }, // Expressive Code handles highlighting.
+  integrations: [sagePresentation(sageConfig)],
   redirects: {
     '/blog/page/1/': '/blog/',
   },

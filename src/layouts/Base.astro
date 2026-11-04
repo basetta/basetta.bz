@@ -1,4 +1,6 @@
 ---
+import { Font } from 'astro:assets';
+import 'astro-sage/styles/global.css';
 import '../styles/global.css';
 import { isPreview, site } from '../site';
 interface Props {
@@ -12,13 +14,23 @@ interface Props {
 const { title, description = site.description, article = false, date, updated, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url);
 const pageTitle = title ? `${title} · ${site.title}` : site.title;
-const links = [['Blog', '/blog/'], ['Archive', '/archive/'], ['Tags', '/tags/'], ['Projects', '/projects/'], ['Search', '/search/']];
+const links = [['Blog', '/blog/'], ['Archive', '/archive/'], ['Tags', '/tags/'], ['Search', '/search/']];
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Font cssVariable="--font-serif" preload />
+    <Font cssVariable="--font-mono" preload />
+    <script is:inline>
+      (() => {
+        let saved;
+        try { saved = localStorage.getItem('theme'); } catch {}
+        document.documentElement.dataset.theme = saved === 'light' || saved === 'dark'
+          ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      })();
+    </script>
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={site.author} />
@@ -46,12 +58,12 @@ const links = [['Blog', '/blog/'], ['Archive', '/archive/'], ['Tags', '/tags/'],
         <button id="theme-toggle" type="button" hidden>Switch theme</button>
       </nav>
     </header>
-    <main id="main"><slot /></main>
+    <main id="main" class:list={{ 'article-page': article }}><slot /></main>
     <footer class="site-footer">
       <span>© {new Date().getUTCFullYear()} {site.author}</span>
       <a href="/atom.xml">Atom feed</a>
       <a href="https://github.com/basetta">GitHub</a>
-      <span>Built with <a href="https://astro.build/">Astro</a></span>
+      <span>Built with <a href="https://astro.build/">Astro</a> · Theme <a href="https://github.com/chintak/astro-sage">AstroSage</a></span>
     </footer>
     <script>
       const button = document.querySelector<HTMLButtonElement>('#theme-toggle');
@@ -69,26 +81,6 @@ const links = [['Blog', '/blog/'], ['Archive', '/archive/'], ['Tags', '/tags/'],
           const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
           setTheme(theme);
           try { localStorage.setItem('theme', theme); } catch { /* Keep the in-memory choice. */ }
-        });
-      }
-      if (navigator.clipboard) {
-        document.querySelectorAll<HTMLElement>('.prose pre').forEach(pre => {
-          const code = pre.querySelector('code');
-          if (!code) return;
-          const copy = document.createElement('button');
-          copy.type = 'button';
-          copy.className = 'copy-code';
-          copy.textContent = 'Copy';
-          copy.setAttribute('aria-label', 'Copy code to clipboard');
-          copy.setAttribute('aria-live', 'polite');
-          copy.addEventListener('click', async () => {
-            try {
-              await navigator.clipboard.writeText(code.textContent ?? '');
-              copy.textContent = 'Copied';
-            } catch { copy.textContent = 'Copy failed'; }
-            window.setTimeout(() => { copy.textContent = 'Copy'; }, 2000);
-          });
-          pre.before(copy);
         });
       }
     </script>

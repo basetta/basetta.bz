@@ -5,6 +5,7 @@ date: 2026-10-30
 description: How a misleading tmux error sent us chasing terminal settings—and
   how we recovered the existing sessions without restarting their server.
 draft: false
+featured: true
 tags:
   - tech
   - tmux

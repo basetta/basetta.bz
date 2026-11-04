@@ -40,7 +40,8 @@ test('every imported page retains its title, date, approved tags and canonical U
       const tagPath = `/tags/${encodeURIComponent(tag)}/`;
       assert.ok(document.querySelector(`a[href="${tagPath}"]`), `${entry.url} must retain ${tag}`);
       const tagPage = await dom(tagPath);
-      assert.ok(tagPage.querySelector(`a[href="${entry.url}"]`), `${tagPath} must list ${entry.url}`);
+      const listed = Boolean(tagPage.querySelector(`.post-list a[href="${entry.url}"]`));
+      assert.equal(listed, !metadata.unlisted, `${tagPath} must only list public entries`);
     }
     assert.doesNotMatch(document.querySelector('.prose').textContent, /\{\{<|\{%|\[taxonomies\]/);
   }
@@ -56,6 +57,26 @@ test('pagination covers every blog post once', async () => {
   assert.deepEqual(links.sort(), currentPosts.toSorted());
 });
 
+test('publication-date ordering is consistent across listings and feeds', async () => {
+  const expected = ['switching-to-astro', 'tmux-sessionizer', 'tmux-not-a-terminal']
+    .map(slug => `/blog/${slug}/`);
+  const archive = await dom('/archive/');
+  const archiveLinks = [...archive.querySelectorAll('.archive-year li a')].map(a => a.getAttribute('href'));
+  assert.deepEqual(archiveLinks.filter(url => expected.includes(url)), expected);
+  // These lists may eventually show only a subset as newer posts are added.
+  for (const route of ['/', '/blog/', '/tags/tech/', '/tags/tmux/']) {
+    const document = await dom(route);
+    const selector = route === '/' ? '#latest-posts .post-list h3 a' : '.post-list h2 a';
+    const links = [...document.querySelectorAll(selector)].map(a => a.getAttribute('href'));
+    assert.deepEqual(links.filter(url => expected.includes(url)), expected.filter(url => links.includes(url)), route);
+  }
+  for (const route of ['/atom.xml', '/tags/tech/atom.xml']) {
+    const { feed } = await xml(route);
+    const urls = feed.entry.map(entry => new URL(entry.id).pathname);
+    assert.deepEqual(urls.filter(url => expected.includes(url)), expected, route);
+  }
+});
+
 test('root and tag Atom feeds remain valid and contain full posts', async () => {
   for (const route of baseline.routes.filter(route => route.endsWith('atom.xml'))) {
     const { feed } = await xml(route);
@@ -68,13 +89,18 @@ test('root and tag Atom feeds remain valid and contain full posts', async () => 
   assert.ok(sessionizer);
   const content = parseHTML(`<html><body>${sessionizer.content['#text']}</body></html>`).document;
   assert.ok(content.body.textContent.includes('canonical_path()'));
+  assert.equal(content.querySelectorAll('script, button, style, link').length, 0);
+  assert.match(content.querySelector('pre code').textContent, /\n\[session\] docs/);
   assert.ok(sessionizer.content['#text'].includes('workspace-picker.png'));
 });
 
 test('sitemap keeps production URLs, excludes redirects and search', async () => {
   const { urlset } = await xml('/sitemap.xml');
   const urls = urlset.url.map(entry => entry.loc);
-  for (const entry of baseline.imported) assert.ok(urls.includes(`https://basetta.bz${entry.url}`));
+  for (const entry of baseline.imported) {
+    const metadata = parseYaml((await readFile(entry.target, 'utf8')).split('---\n')[1]);
+    assert.equal(urls.includes(`https://basetta.bz${entry.url}`), !metadata.unlisted, entry.url);
+  }
   assert.ok(urls.every(url => url.startsWith('https://basetta.bz/')));
   assert.ok(!urls.includes('https://basetta.bz/search/'));
   assert.ok(!urls.includes('https://basetta.bz/blog/page/1/'));
@@ -105,11 +131,30 @@ test('colocated images stay at their original URLs with unchanged bytes', async 
 
 test('code highlighting, CSP and generated search assets are present', async () => {
   const document = await dom('/blog/tmux-sessionizer/');
-  assert.ok(document.querySelector('.prose pre code'));
-  assert.ok(document.querySelector('meta[http-equiv="Content-Security-Policy" i]'));
+  assert.ok(document.querySelector('.expressive-code pre code'));
+  const csp = document.querySelector('meta[http-equiv="Content-Security-Policy" i]')?.getAttribute('content');
+  assert.ok(csp);
+  assert.ok(!/script-src[^;]*'unsafe-inline'/.test(csp));
   const text = [...document.querySelectorAll('pre code')].map(code => code.textContent).join('\n');
   assert.ok(text.includes('set -euo pipefail'));
   assert.ok(text.includes('tmux switch-client -c "$client" -t "$target"'));
   await access('dist/pagefind/pagefind.js');
   await access('dist/pagefind/pagefind-ui.js');
+});
+
+test('Sage fonts and TOC are present without injecting competing routes', async () => {
+  const document = await dom('/blog/tmux-sessionizer/');
+  const fonts = [...document.querySelectorAll('link[rel="preload"][as="font"]')];
+  assert.ok(fonts.length >= 2);
+  for (const font of fonts) {
+    const url = new URL(font.getAttribute('href'), 'https://basetta.bz');
+    assert.equal(url.origin, 'https://basetta.bz');
+    await access(output(url.pathname));
+  }
+  assert.ok(document.querySelector('.post-rail .toc-rail'));
+  assert.ok(document.querySelector('.post-toc-inline .toc-inline'));
+  assert.ok(document.querySelector('link[rel="alternate"][type="application/atom+xml"]'));
+  for (const route of ['/posts/', '/archives/', '/rss.xml', '/sitemap-index.xml', '/og.png']) {
+    await assert.rejects(access(output(route)), { code: 'ENOENT' }, `${route} must not be injected`);
+  }
 });

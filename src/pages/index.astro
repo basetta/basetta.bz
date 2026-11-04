@@ -2,14 +2,26 @@
 import Base from '../layouts/Base.astro';
 import PostList from '../components/PostList.astro';
 import { posts } from '../lib/content';
-const latest = (await posts()).slice(0, 5);
+const entries = await posts();
+const selected = entries.filter(entry => entry.data.featured);
+const latest = entries.slice(0, 5);
 ---
 <Base>
   <section class="intro">
-    <img src="/img/profile.webp" width="112" height="112" alt="Basetta" />
-    <div><h1>Hi, I'm Basetta! 👋</h1><p>Welcome to my personal site!</p></div>
+    <img src="/img/profile.webp" width="112" height="112" alt="" />
+    <div>
+      <h1>Hi, I'm Patrick—aka Basetta. 👋</h1>
+      <p>I write about developer tools, things I build, and the occasional detour through life.</p>
+      <a class="intro-feed" href="/atom.xml">Subscribe via Atom →</a>
+    </div>
   </section>
-  <h2 class="section-title">Latest posts</h2>
-  <PostList entries={latest} />
-  <a class="all-posts" href="/blog/">All posts →</a>
+  {selected.length > 0 && <section class="home-section" aria-labelledby="selected-heading">
+    <h2 id="selected-heading" class="section-title">Start here: selected writing</h2>
+    <PostList entries={selected} headingLevel={3} />
+  </section>}
+  <section id="latest-posts" class="home-section" aria-labelledby="latest-heading">
+    <h2 id="latest-heading" class="section-title">Latest posts</h2>
+    <PostList entries={latest} headingLevel={3} />
+    <a class="all-posts" href="/blog/">All posts →</a>
+  </section>
 </Base>

@@ -1,10 +1,11 @@
 ---
 title: From a Folder Picker to a tmux Workspace Switcher
 slug: tmux-sessionizer
-date: 2026-10-30
+date: 2026-10-30T10:00:00Z
 description: Evolving a Bash and fzf folder picker into a tmux workspace
   switcher that discovers Git worktrees and reuses existing sessions.
 draft: false
+featured: true
 tags:
   - tech
   - tmux
