@@ -4,7 +4,6 @@ slug: protect-your-private-data-using-gitconfig-include-directive
 date: 2013-01-28
 description: Keep shared Git settings in your dotfiles while storing your name and email in a separate local configuration file.
 draft: false
-featured: true
 tags:
   - tech
   - git
